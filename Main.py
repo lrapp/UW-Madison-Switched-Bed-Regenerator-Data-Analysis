@@ -19,7 +19,7 @@ refresh_sub=False
 calc = True
 
 if len(sys.argv) != 4:
-    print("Not enough inputs, correct usage=  main.py <file_date> <start> <end>")
+    print("Not enough inputs, correct usage=  main.py <file_date> <start> <end> \n"+"\t main.py 10_4_17 120 170")
     sys.exit()
 
 file_date=str(sys.argv[1])
