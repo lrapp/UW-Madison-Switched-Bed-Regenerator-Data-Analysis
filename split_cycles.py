@@ -1,7 +1,5 @@
 def split_cycles(df,BV,folder):
     import dateutil.parser
-
-    import props
     import pandas as pd
     import os
     from visc import visc
@@ -125,7 +123,8 @@ def split_cycles(df,BV,folder):
                     
                     
                     props_list=['h','rho','mu']
-                    props_list_keys=[0,1,3]
+#                    props_list_keys=[0,1,3]
+                    props_list_keys=[6,2,11]
                     props_list_special=[1,1,10e5]
     
                     props_dict={'20':['TI20','PT03'],
@@ -148,7 +147,8 @@ def split_cycles(df,BV,folder):
     
                     for k in range(0,len(props_list)):
                         for z,tp in props_dict.items():
-                            h2.update({props_list[k]+z : props.f90wrap_enthalpy_tp(df_state[tp[0]][j]+273.15,df_state[tp[1]][j]*6.89475729)[props_list_keys[k]]/props_list_special[k]})
+#                            h2.update({props_list[k]+z : props.f90wrap_enthalpy_tp(df_state[tp[0]][j]+273.15,df_state[tp[1]][j]*6.89475729)[props_list_keys[k]]/props_list_special[k]})
+                            h2.update({props_list[k]+z : props5.f90wrap_tp(df_state[tp[0]][j]+273.15,df_state[tp[1]][j]*6.89475729)[props_list_keys[k]]/props_list_special[k]})
                             
 #                    h2.update(state)
                     
