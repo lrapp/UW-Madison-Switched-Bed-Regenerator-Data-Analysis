@@ -86,24 +86,26 @@ def calc_Q(start,end,df_full_cols):
                 Q_combos[possible_states[k]][1][0].append(Q_combos[possible_states[k]][1][1]-Q_combos[possible_states[k]][1][2])
             if df_full_cols.loc[df_full_cols['unique_state_num']==i]['state'][0] == 'STATE1':
                 half_cycle_time.append((df_i.index[-1]-df_i.index[0]).total_seconds())        
+    Q_C1_ave=0
+    Q_H1_ave=0
+    Q_H2_ave=0
+    Q_C2_ave=0
+    Q_C1_ST2a=[0]
+    Q_C1_ST2b=[0]
 
-
-    Q_C1_ave=np.mean(Q_C1)
-    Q_H1_ave=np.mean(Q_H1)
-    Q_C2_ave=np.mean(Q_C2)
-    Q_H2_ave=np.mean(Q_H2)
+    if len(Q_C1) != 0: Q_C1_ave=np.mean(Q_C1)
+    if len(Q_H1) != 0: Q_H1_ave=np.mean(Q_H1)
+    if len(Q_C2) !=0: Q_C2_ave=np.mean(Q_C2)
+    if len(Q_H2) !=0: Q_H2_ave=np.mean(Q_H2)
     half_cycle_time_ave=np.mean(half_cycle_time)
-    Q_C1_std=np.std(Q_C1)
-    Q_H1_std=np.std(Q_H1)
-    Q_C2_std=np.std(Q_C2)
-    Q_H2_std=np.std(Q_H2)
+    if len(Q_C1) !=0: Q_C1_std=np.std(Q_C1)
+    if len(Q_H1) !=0: Q_H1_std=np.std(Q_H1)
+    if len(Q_C2) !=0: Q_C2_std=np.std(Q_C2)
+    if len(Q_H2) !=0: Q_H2_std=np.std(Q_H2)
     
-    Q_C1_st2a_ave=np.mean(Q_C1_ST2a)
-    Q_C1_st2b_ave=np.mean(Q_C1_ST2b)
-    
-    
+    if len(Q_C1_ST2a) !=0: Q_C1_st2a_ave=np.mean(Q_C1_ST2a)
+    if len(Q_C1_ST2b) !=0: Q_C1_st2b_ave=np.mean(Q_C1_ST2b)
 
-    
     return [Q_C1_ave,Q_H1_ave,
             Q_C2_ave,Q_H2_ave,
             Q_C1_std,Q_H1_std,

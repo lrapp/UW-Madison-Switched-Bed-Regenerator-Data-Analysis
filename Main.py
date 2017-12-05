@@ -17,9 +17,11 @@ with Timer():
     refresh_sub=False
     calc = True
     
-    file_date="10_9_17" #Specify file date    
-#    root="C:\\Users\\lrapp\\OneDrive - UW-Madison\\Research\\Data Store\\Data\\"
-    root="C:\\Users\\Logan\\OneDrive - UW-Madison\\Research\\Data Store\\Data\\"    
+    file_date="10_9_17" #Specify file date   
+    print("Data Analyized=",file_date)
+    
+#    root="C:\\Users\\Logan\\OneDrive - UW-Madison\\Research\\Data Store\\Data\\"    
+    root=os.getcwd()
     
     folder=root+file_date
     file_list=os.listdir(folder)

@@ -116,12 +116,16 @@ def fast_ave(start,end,df_full_cols):
         asl2.append(st4c)
 
         
+    asl3=[]
+    asl3.append(asl2[0].copy())
     for i in range(1,len(asl2)):
-        indexer=asl2[i].index.values
-        asl2[i].loc[indexer,'rel_time_ave']=asl2[i]['rel_time_ave'].values+asl2[i-1]['rel_time_ave'][-1:].values[0]             
-#        asl2[i]['rel_time_ave']=asl2[i]['rel_time_ave'].values+asl2[i-1]['rel_time_ave'][-1:].values[0]
+        asl3_i=asl2[i].copy()
+        indexer=asl3_i.index.values
+        new_vals=asl3_i['rel_time_ave'].values+asl2[i-1]['rel_time_ave'][-1:].values[0] 
+        asl3_i.loc[indexer,'rel_time_ave']=new_vals     
+        asl3.append(asl3_i)
         
-    full2=pd.concat(asl2,ignore_index=True)
+    full2=pd.concat(asl3,ignore_index=True)
     cols=full2.columns.tolist()
     st=cols.pop(cols.index('state'))
     cols2=cols[0:1]+[st]+cols[1:-1]
