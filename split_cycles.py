@@ -2,7 +2,6 @@ def split_cycles(df,BV,folder):
     import dateutil.parser
     import pandas as pd
     import os
-    from visc import visc
     import numpy as np
     import props5
     from class_def import props as props_vals
