@@ -4,7 +4,7 @@ from class_def import props,Q,HT_results,main_char,Timer
 with Timer():
     from get_data import get_data #function used to import raw data
     from create_averaged_vars import create_averaged_vars #function to average pressure data so there are equal number of temperature and pressure points
-    from cycle_analysis2 import split_cycles2
+    from split_cycles import split_cycles
     from lin_int_cycle2 import lin_int_cycle2
     from fast_ave2 import fast_ave2
     from ave_for_fit2 import ave_for_fit2
