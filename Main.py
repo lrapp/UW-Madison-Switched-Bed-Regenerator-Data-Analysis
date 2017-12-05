@@ -6,9 +6,9 @@ with Timer():
     from create_averaged_vars import create_averaged_vars #function to average pressure data so there are equal number of temperature and pressure points
     from split_cycles import split_cycles
     from lin_int_cycle import lin_int_cycle
-    from fast_ave2 import fast_ave2
-    from ave_for_fit2 import ave_for_fit2
-    from calc_Q2 import calc_Q2
+    from fast_ave import fast_ave
+    from ave_for_fit import ave_for_fit
+    from calc_Q import calc_Q
     from heat_transfer_coef_fn import ht_coef_fn
     import props5
     import os
