@@ -9,7 +9,7 @@ class Timer(object):
     def __exit__(self, type, value, traceback):
         if self.name:
             print('[%s]' % self.name,)
-        print('Elapsed: %s' % (time.time() - self.tstart))
+        print('\t Elapsed: %s' % (time.time() - self.tstart))
 
 class props:
     import numpy as np
@@ -150,10 +150,9 @@ class main_char:
                +'Re'+'\t'+str(round(self.Re,2))+"\n"
                +"eff_C1"+'\t'+str(round(self.eff_C1,3))+'\n'
                +"eff_H1"+'\t'+str(round(self.eff_H1,3))+'\n'
-               +"eff_C1_new"+"\t"+str(round(self.eff_C1_new,3))+'\n'
-               +"eff_H1_new"+"\t"+str(round(self.eff_H1_new,3))+'\n'
                +'switching_time'+'\t'+str(round(self.switching_time,2))+"\n"
-               +'Q_C1_ave'+str(round(self.Q_C1_ave,2))+" +/- "+str(round(self.Q_C1_std,2))+"\n"
-               +'Q_H1_ave'+str(round(self.Q_H1_ave,2))+" +/- "+str(round(self.Q_H1_std,2))+"\n")       
-                
+               +'Q_C1_ave'+'\t'+str(round(self.Q_C1_ave,2))+" +/- "+str(round(self.Q_C1_std,2))+"\n"
+               +'Q_H1_ave'+'\t'+str(round(self.Q_H1_ave,2))+" +/- "+str(round(self.Q_H1_std,2))+"\n"
+               +'dP_CTHB_fs'+'\t'+str(round(self.dP_CTHB_fs,2))+"psi"+"\n"
+               +'dP_HTCB_fs'+'\t'+str(round(self.dP_HTCB_fs,2))+"psi"+"\n")                
                

@@ -184,7 +184,7 @@ def ht_coef_fn(start,end,df_full_cols):
     #    [S1_ave,S2a_ave,S2b_ave,S2c_ave,S3_ave,S4a_ave,S4b_ave,S4c_ave,full_cycle]=cycle_ave(folder,new_cycle,start,end,df)
     
     ##Get Averaged States
-    [S1_ave,S2a_ave,S2b_ave,S2c_ave,S3_ave,S4a_ave,S4b_ave,S4c_ave,full_cycle]=fast_ave2(start,end,df_full_cols)
+    [S1_ave,S2a_ave,S2b_ave,S2c_ave,S3_ave,S4a_ave,S4b_ave,S4c_ave,full_cycle]=fast_ave(start,end,df_full_cols)
     
     ##Get State Switching Times
     S1_swt=list(S1_ave['rel_time_ave'])[-1]
@@ -216,12 +216,12 @@ def ht_coef_fn(start,end,df_full_cols):
     m_dot_H_RE1_std=full_cycle.loc[full_cycle['state']=='STATE1']["FI01"+"_std"].mean()    
     
     
-    Max_Results_New=HT_results(ave_for_fit2(full_cycle,1,1.2))
-    Max_Results_Original=HT_results(ave_for_fit2(full_cycle,1,0))
+    Max_Results_New=HT_results(ave_for_fit(full_cycle,1,1.2))
+    Max_Results_Original=HT_results(ave_for_fit(full_cycle,1,0))
     
     valve_time=0
     
-    Q_re=Q(calc_Q2(start,end,df_full_cols))
+    Q_re=Q(calc_Q(start,end,df_full_cols))
     
     eff_C1=(Q_re.Q_C1_ave/(Q_re.half_cycle_time_ave+valve_time))/Max_Results_Original.q_dot_max_RE1
     eff_H1=(Q_re.Q_H1_ave/(Q_re.half_cycle_time_ave+valve_time))/Max_Results_Original.q_dot_max_RE1    
@@ -230,7 +230,7 @@ def ht_coef_fn(start,end,df_full_cols):
     eff_H1_new=Q_re.Q_H1_ave/(Max_Results_New.q_dot_max_RE1*(S3_swt+S4a_swt+S4b_swt))    
     
     
-    Actual_Results=HT_results(ave_for_fit2(full_cycle,eff_C1,0))
+    Actual_Results=HT_results(ave_for_fit(full_cycle,eff_C1,0))
     
     T_C_out_RE1=Actual_Results.t_1_RE1[0]
     T_H_out_RE1=Actual_Results.t_2_RE1[-1]
