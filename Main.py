@@ -5,7 +5,7 @@ with Timer():
     from get_data import get_data #function used to import raw data
     from create_averaged_vars import create_averaged_vars #function to average pressure data so there are equal number of temperature and pressure points
     from split_cycles import split_cycles
-    from lin_int_cycle2 import lin_int_cycle2
+    from lin_int_cycle import lin_int_cycle
     from fast_ave2 import fast_ave2
     from ave_for_fit2 import ave_for_fit2
     from calc_Q2 import calc_Q2
